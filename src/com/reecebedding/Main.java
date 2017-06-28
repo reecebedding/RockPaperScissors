@@ -16,7 +16,12 @@ public class Main {
             Choices.Option userOption;
 
             try {
+                System.out.print("Make a choice: ");
                 String userChoice = scanner.nextLine();
+
+                if (userChoice.isEmpty())
+                    continue;
+
                 userOption = Choices.GetOptionFromChoice(userChoice);
             } catch (InvalidPropertiesFormatException exn){
                 System.out.println("Invalid choice.");
@@ -24,6 +29,20 @@ public class Main {
             }
 
             manager.ManageResult(userOption);
+            printScore(manager);
+            System.out.println();
         }
+    }
+
+    private static void printScore(GameManager manager){
+
+        StringBuilder builder = new StringBuilder(50);
+        builder.append("You: ");
+        builder.append(manager.getUserScore());
+        builder.append(" - ");
+        builder.append("Opponent: ");
+        builder.append(manager.getAIScore());
+
+        System.out.println(builder.toString());
     }
 }
