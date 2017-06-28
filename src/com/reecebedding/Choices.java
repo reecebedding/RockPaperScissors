@@ -4,6 +4,12 @@ import java.util.InvalidPropertiesFormatException;
 
 public class Choices {
 
+    public static Option[] OPTIONS = {
+            new Rock(),
+            new Paper(),
+            new Scissors()
+    };
+
     public static Option GetOptionFromChoice(String option) throws InvalidPropertiesFormatException {
 
         switch (option.toLowerCase()){

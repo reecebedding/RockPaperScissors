@@ -9,6 +9,8 @@ public class Main {
         System.out.println("Rock paper scissors");
         Scanner scanner = new Scanner(System.in);
 
+        GameManager manager = new GameManager();
+
         while(true){
 
             Choices.Option userOption;
@@ -21,7 +23,7 @@ public class Main {
                 continue;
             }
 
-            System.out.println(userOption.GetName());
+            manager.ManageResult(userOption);
         }
     }
 }
